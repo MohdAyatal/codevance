@@ -1,0 +1,36 @@
+{
+  "name": "codevance",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
+    "@supabase/supabase-js": "^2.43.0",
+    "@supabase/ssr": "^0.4.0",
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@monaco-editor/react": "^4.6.0",
+    "monaco-editor": "^0.49.0",
+    "lucide-react": "^0.383.0",
+    "clsx": "^2.1.1",
+    "razorpay": "^2.9.2",
+    "stripe": "^14.21.0",
+    "@stripe/stripe-js": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5",
+    "tailwindcss": "^4",
+    "@tailwindcss/postcss": "^4",
+    "eslint": "^8",
+    "eslint-config-next": "^15"
+  }
+}
