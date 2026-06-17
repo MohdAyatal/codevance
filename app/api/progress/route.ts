@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
       cookies: {
         getAll() { return cookieStore.getAll(); },
         setAll(cookiesToSet: any) {
-          cookiesToSet.forEach(({ name, value, options : any }) =>
+          cookiesToSet.forEach(({ name, value, options }: any) =>
             cookieStore.set(name, value, options)
           );
         },
@@ -24,7 +24,6 @@ export async function POST(req: NextRequest) {
 
   const { lessonId, score, xpEarned, completed } = await req.json();
 
-  // Upsert progress
   const { error } = await supabase.from("user_progress").upsert(
     {
       user_id: user.id,
@@ -40,7 +39,6 @@ export async function POST(req: NextRequest) {
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-  // Update total XP on profile
   if (xpEarned > 0) {
     await supabase.rpc("increment_xp", {
       user_id_input: user.id,
@@ -60,8 +58,8 @@ export async function GET(req: NextRequest) {
       cookies: {
         getAll() { return cookieStore.getAll(); },
         setAll(cookiesToSet: any) {
-          cookiesToSet.forEach(({ name, value, options }) =>
-            cookieStore.set(name, value, options : any)
+          cookiesToSet.forEach(({ name, value, options }: any) =>
+            cookieStore.set(name, value, options)
           );
         },
       },
