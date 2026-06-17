@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
       allowedOrigins: ["localhost:3000"],
     },
   },
+  webpack: (config) => {
+    config.externals = [...(config.externals || []), "pyodide"];
+    return config;
+  },
 };
 
 export default nextConfig;
