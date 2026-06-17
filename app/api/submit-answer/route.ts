@@ -11,8 +11,8 @@ export async function POST(req: NextRequest) {
       cookies: {
         getAll() { return cookieStore.getAll(); },
         setAll(cookiesToSet: any) {
-          cookiesToSet.forEach(({ name, value, options }) =>
-            cookieStore.set({name, value, options}: any)
+          cookiesToSet.forEach(({ name, value, options }: any) =>
+            cookieStore.set(name, value, options)
           );
         },
       },
@@ -27,7 +27,6 @@ export async function POST(req: NextRequest) {
 
   const isCorrect = userAnswer === correctIndex;
 
-  // Save quiz attempt
   await supabase.from("quiz_attempts").insert({
     user_id: user.id,
     lesson_id: lessonId,
