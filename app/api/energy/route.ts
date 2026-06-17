@@ -11,7 +11,7 @@ export async function GET() {
     {
       cookies: {
         getAll() { return cookieStore.getAll(); },
-        setAll(c) { c.forEach(({ name, value, options }) => cookieStore.set(name, value, options)); },
+        setAll(c: any) { c.forEach(({ name, value, options }: any) => cookieStore.set(name, value, options)); },
       },
     }
   );
@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
     {
       cookies: {
         getAll() { return cookieStore.getAll(); },
-        setAll(c) { c.forEach(({ name, value, options }) => cookieStore.set(name, value, options)); },
+        setAll(c: any) { c.forEach(({ name, value, options }: any) => cookieStore.set(name, value, options)); },
       },
     }
   );
