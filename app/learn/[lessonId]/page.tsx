@@ -46,7 +46,7 @@ export default function LearnPage({ params }: { params: Promise<{ lessonId: stri
     if (pyodideRef.current || pyodideLoading.current) return;
     pyodideLoading.current = true;
     try {
-      const { loadPyodide } = await import("pyodide");
+      const { loadPyodide } = await import((/* webpackIgnore: true */ "https://cdn.jsdelivr.net/npm/pyodide@0.25.0/pyodide.mjs" as any);
       pyodideRef.current = await loadPyodide({ indexURL: "https://cdn.jsdelivr.net/npm/pyodide@0.25.0/" });
       pyodideReady.current = true;
     } catch (e) { console.error("Pyodide:", e); }
